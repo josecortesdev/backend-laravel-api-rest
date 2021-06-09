@@ -55,4 +55,10 @@ public function getJWTCustomClaims()
 	return [];
 }
 
+//Relación uno a muchos
+public function productos(){ // El usuario podrá tener varios productos
+
+    return $this->hasMany('app\Models\product');
+}
+
 }

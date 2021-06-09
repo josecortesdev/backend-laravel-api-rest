@@ -19,12 +19,16 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-Route::post('register', 'App\Http\Controllers\UserController@register');
-Route::post('login', 'App\Http\Controllers\UserController@authenticate');
-Route::post('logout', 'App\Http\Controllers\UserController@logout');
+Route::post('register', 'UserController@register');
+Route::post('login', 'UserController@authenticate');
+Route::post('logout', 'UserController@logout');
 
 
 Route::group(['middleware' => ['jwt.verify']], function() {
 
-    Route::post('user','App\Http\Controllers\UserController@getAuthenticatedUser');
+    Route::post('user','UserController@getAuthenticatedUser');
+
+    Route::resource('products', ProductController::class);
+    
 });
+
