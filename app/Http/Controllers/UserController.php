@@ -79,6 +79,8 @@ class UserController extends Controller
         return response()->json(compact('user','token'),201);
     }
 
+
+
     public function logout(Request $request)
     {
         $token = $request->header( 'Authorization' ); // el token
@@ -88,5 +90,6 @@ class UserController extends Controller
 
         return response()->json(['message' => 'Successfully logged out']);
     }
+
 
 }
